@@ -29,7 +29,7 @@ export default {
         Grid, Graph,
     },
 
-    mixins: [Pusher],
+    mixins: [Pusher, SaveState],
 
     props: ['grid'],
 
@@ -77,7 +77,7 @@ export default {
         },
 
         getSavedStateId() {
-            return 'rain-forecast-update';
+            return 'rain-forecast';
         },
 
         noRainPredicted() {
