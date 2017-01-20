@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import Tweet from '../../../js/services/twitter/Tweet';
+import Tweet from '../../../js/services/twitter/Tweet'
 import tweetProperties from './fixtures/tweetText';
 import tweetWithImageProperties from './fixtures/tweetWithImage';
 
@@ -22,12 +22,8 @@ describe('Mention', () => {
     });
 
     it('can get the text of a tweet', () => {
-        assert.equal(tweet.text, '@jarenduren testtweet #cool');
+        assert.equal(tweet.text, '@jarenduren testtweet');
         assert.equal(tweetWithImage.text, '@jarenduren tweet with image');
-    });
-
-    it('can get the html of a tweet', () => {
-        assert.equal(tweet.html, '@jarenduren testtweet <span class="tweet__body__hashtag">#cool</span>');
     });
 
     it('can get the avatar of the author', () => {
@@ -40,10 +36,10 @@ describe('Mention', () => {
     });
 
     it('can get the date of a tweet', () => {
-        assert.equal(tweet.date.format('YYYY-MM-DD'), '2017-01-16');
+        assert.equal(tweet.date.format('YYYY-MM-DD'), '2017-01-16')
     });
 
     it('can determine the display class of a tweet', () => {
-        assert.equal(tweet.displayClass, 'default');
+        assert.equal(tweet.displayClass, 'default')
     });
 });
