@@ -17,6 +17,7 @@
 
 <script>
     import Grid from './atoms/Grid';
+    import icons from '../services/weather/icons';
     import moment from 'moment';
     import weather from '../services/weather/Weather';
 
@@ -69,7 +70,7 @@
                 const conditions = await weather.conditions();
 
                 this.weather.temperature = conditions.temp;
-                this.weather.icon = 'wi-yahoo-' + conditions.code;
+                this.weather.icon = icons[conditions.code] || 'wi-cloud';
             },
         },
     };
