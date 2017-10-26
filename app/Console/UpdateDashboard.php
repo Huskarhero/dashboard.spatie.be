@@ -17,7 +17,6 @@ class UpdateDashboard extends Command
         $this->call('dashboard:send-heartbeat');
         $this->call('dashboard:fetch-current-track');
         $this->call('dashboard:fetch-packagist-totals');
-        $this->call('dashboard:fetch-npm-totals');
         $this->call('dashboard:fetch-tasks');
     }
 }
