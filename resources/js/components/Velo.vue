@@ -4,18 +4,13 @@
             <div class="text-3xl -mt-4" v-html="emoji('🚲')" />
             <ul class="align-self-center">
                 <li v-for="station in stations">
-                    <span :class="{
-                        'line-through' : isStationEmpty(station),
-                        'text-danger' : isStationNearEmpty(station)
-                    }">
-                        {{ station.name.substring(4) }}
-                    </span>
+                    <span :class="station.bikes == 0 ? 'line-through' : ''">{{
+                        station.name.substring(4)
+                    }}</span>
                     <span>
-                        <span
-                            :class="{ 'text-danger' : isStationNearEmpty(station) }"
-                            class="font-bold">
-                            {{ station.bikes }}
-                        </span>
+                        <span :class="station.bikes < 3 ? 'text-danger' : ''" class="font-medium">{{
+                            station.bikes
+                        }}</span>
                     </span>
                 </li>
             </ul>
@@ -46,14 +41,6 @@ export default {
 
     methods: {
         emoji,
-
-        isStationEmpty(station) {
-            return station.bikes == 0;
-        },
-
-        isStationNearEmpty(station) {
-            return station.bikes < 3;
-        },
 
         getEventHandlers() {
             return {

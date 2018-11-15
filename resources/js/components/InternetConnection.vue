@@ -1,26 +1,20 @@
 <template>
-    <tile :position="position" class="z-10" style="--bg-tile: transparent">
-        <div v-if="offline" class="flex">
-            <div class="px-4 py-2 mx-auto font-black text-invers bg-error rounded-full shadow-lg">
-                No connection
-            </div>
+    <div v-if="offline" class="fixed pin">
+        <div class="fixed pin bg-tile opacity-25"></div>
+        <div class="grid justify-items-center fixed pin-b pin-l pin-r">
+            <span class="px-4 py-2 mb-8 font-black text-invers bg-error rounded-full shadow-lg"
+                >No connection</span
+            >
         </div>
-    </tile>
+    </div>
 </template>
 
 <script>
 import echo from '../mixins/echo';
 import moment from 'moment';
-import Tile from './atoms/Tile';
 
 export default {
-    components: {
-        Tile,
-    },
-
     mixins: [echo],
-
-    props: ['position'],
 
     data() {
         return {
