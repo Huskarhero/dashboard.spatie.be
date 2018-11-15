@@ -15,8 +15,6 @@ class SendFakeTweetCommand extends Command
 
     public function handle()
     {
-        $this->info('Sending fake tweet...');
-
         $text = $this->argument('text') ?? Inspiring::quote();
 
         $quote = $this->option('quote')
@@ -24,8 +22,6 @@ class SendFakeTweetCommand extends Command
             : '';
 
         event(new Mentioned($this->getFakeTweetProperties($text, $quote)));
-
-        $this->info('All done!');
     }
 
     protected function getFakeTweetProperties(string $text, string $quote): array

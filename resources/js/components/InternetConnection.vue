@@ -39,7 +39,7 @@ export default {
 
         getEventHandlers() {
             return {
-                'Dashboard.Heartbeat': () => {
+                'InternetConnection.Heartbeat': () => {
                     this.lastHeartBeatReceivedAt = moment();
                 },
             };

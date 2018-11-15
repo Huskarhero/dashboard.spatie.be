@@ -26,8 +26,6 @@ class FetchCurrentTracksCommand extends Command
 
     public function handle()
     {
-        $this->info('Fetching current tracks');
-
         $lastFm = new NowPlaying(config('services.last-fm.api_key'));
 
         collect($this->lastFmUsers)
@@ -40,7 +38,5 @@ class FetchCurrentTracksCommand extends Command
 
                 event($event);
             });
-
-        $this->info('All done!');
     }
 }

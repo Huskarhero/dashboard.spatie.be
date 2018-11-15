@@ -15,8 +15,6 @@ class FetchPackagistTotalsCommand extends Command
 
     public function handle()
     {
-        $this->info('Fetching packagist totals...');
-
         $packagist = new Packagist(new Client());
 
         $totals = collect($packagist->getPackagesByVendor(config('services.packagist.vendor'))['packageNames'])
@@ -31,7 +29,5 @@ class FetchPackagistTotalsCommand extends Command
                 });
 
         event(new PackagistTotalsFetched($totals));
-
-        $this->info('All done!');
     }
 }

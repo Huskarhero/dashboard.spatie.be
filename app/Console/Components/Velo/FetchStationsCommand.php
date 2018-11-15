@@ -14,12 +14,8 @@ class FetchStationsCommand extends Command
 
     public function handle(Velo $velo)
     {
-        $this->info('Fetching Velo stations...');
-
         $stations = $velo->getStations(config('services.velo.stations'));
 
         event(new StationsFetched($stations));
-
-        $this->info('All done!');
     }
 }

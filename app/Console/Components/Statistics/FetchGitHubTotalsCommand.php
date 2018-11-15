@@ -15,8 +15,6 @@ class FetchGitHubTotalsCommand extends Command
 
     public function handle(GitHubApi $gitHub)
     {
-        $this->info('Fetching GitHub totals');
-
         $userName = config('services.github.username');
 
         $totals = $gitHub
@@ -35,7 +33,5 @@ class FetchGitHubTotalsCommand extends Command
             });
 
         event(new GitHubTotalsFetched($totals));
-
-        $this->info('All done!');
     }
 }

@@ -13,10 +13,6 @@ class SendHeartbeatCommand extends Command
 
     public function handle()
     {
-        $this->info('Sending heartbeat...');
-
         event(new Heartbeat());
-
-        $this->info('All done!');
     }
 }

@@ -15,8 +15,6 @@ class FetchTasksCommand extends Command
 
     public function handle(GitHubApi $gitHub)
     {
-        $this->info('Fetching tasks from GitHub...');
-
         $fileNames = explode(',', config('services.github.files'));
 
         $contentOfFiles = collect($fileNames)
@@ -36,8 +34,6 @@ class FetchTasksCommand extends Command
             ->toArray();
 
         event(new TasksFetched($contentOfFiles));
-
-        $this->info('All done!');
     }
 
     protected function markdownToHtml(string $markdown): string
@@ -47,7 +43,7 @@ class FetchTasksCommand extends Command
 
     protected function formatTasks(string $html): string
     {
-        $html = str_replace('(', '<span class="style-list-number">', $html);
+        $html = str_replace('(', '<span class="ml-2 text-dimmed text-sm">', $html);
         $html = str_replace(')', '</span>', $html);
 
         return $html;

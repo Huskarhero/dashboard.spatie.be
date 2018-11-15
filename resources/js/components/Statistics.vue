@@ -20,16 +20,11 @@
                     <span class="font-medium">{{ formatNumber(githubPullRequests) }}</span>
                 </li>
                 <li>
-                    <span>
-                        <span class="mr-2">Downloads</span> <span class="text-dimmed">30 days</span>
-                    </span>
+                    <span>30 days</span>
                     <span class="font-medium">{{ formatNumber(packagistMonthly) }}</span>
                 </li>
                 <li>
-                    <span>
-                        <span class="opacity-0 mr-2">Downloads</span>
-                        <span class="text-dimmed">Total</span>
-                    </span>
+                    <span>Total</span>
                     <span class="font-medium">{{ formatNumber(packagistTotal) }}</span>
                 </li>
             </ul>
@@ -71,10 +66,10 @@ export default {
         getEventHandlers() {
             return {
                 'Statistics.GitHubTotalsFetched': response => {
-                    this.githubStars = response.stars;
-                    this.githubIssues = response.issues;
-                    this.githubPullRequests = response.pullRequests;
-                    this.githubContributors = response.contributors;
+                    this.githubStars = response.githubStars;
+                    this.githubIssues = response.githubIssues;
+                    this.githubPullRequests = response.githubPullRequests;
+                    this.githubContributors = response.githubContributors;
                 },
 
                 'Statistics.PackagistTotalsFetched': response => {
