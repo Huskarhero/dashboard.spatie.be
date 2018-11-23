@@ -3,9 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GitHubWebhookController;
 use App\Http\Controllers\UpdateTemperatureController;
-use App\Http\Middleware\AccessToken;
 
-Route::group(['middleware' => AccessToken::class], function () {
+Route::group(['middleware' => 'auth.basic'], function () {
     Route::get('/', DashboardController::class);
 
     Route::post('temperature', UpdateTemperatureController::class);

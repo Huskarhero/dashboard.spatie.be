@@ -14,8 +14,6 @@ return [
 
     'name' => 'Dashboard',
 
-    'access_token' => env('ACCESS_TOKEN'),
-
     /*
     |--------------------------------------------------------------------------
     | Application Environment
