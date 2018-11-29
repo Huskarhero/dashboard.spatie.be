@@ -8,14 +8,10 @@ class AccessToken
 {
     public function handle($request, Closure $next)
     {
-        if (app()->environment('local')) {
-            return $next($request);
+        if ($request->get('access-token') !== config('app.access_token')) {
+            abort(401);
         }
 
-        if ($request->get('access-token') === config('app.access_token')) {
-            return $next($request);
-        }
-
-        abort(401);
+        return $next($request);
     }
 }
