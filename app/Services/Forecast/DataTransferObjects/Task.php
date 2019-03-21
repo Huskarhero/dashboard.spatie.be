@@ -62,10 +62,6 @@ class Task extends DataTransferObject
             return $name;
         }
 
-        if ($project === 'Spatie Overhead' && !empty($name)) {
-            return $name;
-        }
-
         return $project;
     }
 
