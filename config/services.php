@@ -83,5 +83,8 @@ return [
             'label' => 'Kapellen',
         ],
     ],
+    'velo' => [
+        'stations' => explode(',', env('VELO_STATIONS')),
+    ],
 
 ];

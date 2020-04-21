@@ -170,14 +170,16 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\CollectionServiceProvider::class,
         Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiServiceProvider::class,
         App\Services\GitHub\GitHubServiceProvider::class,
         App\Services\Slack\SlackServiceProvider::class,
+        App\Services\Velo\VeloServiceProvider::class,
+        App\Services\Trains\IRailServiceProvider::class,
         App\Services\Buienradar\BuienradarServiceProvider::class,
         App\Services\Forecast\ForecastServiceProvider::class,
-        \App\Providers\LivewireComponentsServiceProvider::class,
     ],
 
     /*
@@ -230,4 +232,5 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'TwitterStreamingApi' => Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiFacade::class,
     ],
+
 ];
