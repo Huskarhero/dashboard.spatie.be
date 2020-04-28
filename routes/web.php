@@ -6,7 +6,7 @@ use App\Http\Controllers\UpdateTemperatureController;
 use App\Http\Controllers\UpdateIndoorAirQualityController;
 
 Route::group(['middleware' => AccessToken::class], function () {
-    Route::view('/', 'dashboard');
+    Route::get('/', DashboardController::class);
 
     Route::post('indoor-air-quality', UpdateIndoorAirQualityController::class);
 });
